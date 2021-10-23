@@ -15,6 +15,7 @@ import SidebarMenu from './sidebar-menu/SidebarMenu';
 import SidebarMenuItem from './sidebar-menu-item/SidebarMenuItem';
 import StatementsTable from './statements-table/StatementsTable';
 import SubstanceIcon from './icons/SubstanceIcon';
+import SubstancesTable from './substances-table/SubstancesTable';
 import TablePaginationActions from './table-pagination-actions/TablePaginationActions';
 
 export {
@@ -35,5 +36,6 @@ export {
   SidebarMenuItem,
   StatementsTable,
   SubstanceIcon,
+  SubstancesTable,
   TablePaginationActions,
 };

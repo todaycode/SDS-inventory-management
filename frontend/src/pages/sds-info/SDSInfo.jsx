@@ -301,14 +301,25 @@ const SDSInfoPage = ({ user }) => {
                   Other information
                 </Typography>
               </div>
-              {sdsInfo.matched_pdf?.other_data.map((el, i) => (
-                <div key={i} className={classes.infoRow}>
-                  <Typography className={classes.informationTitle}>
-                    {el.default_literal ? el.default_literal : el.tag}
-                  </Typography>
-                  <Typography className={classes.informationValue}>
-                    {el.value}
-                  </Typography>
+              {Object.keys(sdsInfo.matched_pdf?.other_data).map((el, i) => (
+                <div>
+                  <div className={classes.informationBlockHeadingWrapper}>
+                    <Typography className={classes.informationBlockHeading}>
+                      Section {el}
+                    </Typography>
+                  </div>
+                  {sdsInfo.matched_pdf?.other_data[el].map((otherData, i) => (
+                    <div key={i} className={classes.infoRow}>
+                      <Typography className={classes.informationTitle}>
+                        {otherData.default_literal
+                          ? otherData.default_literal
+                          : otherData.tag}
+                      </Typography>
+                      <Typography className={classes.informationValue}>
+                        {otherData.value}
+                      </Typography>
+                    </div>
+                  ))}
                 </div>
               ))}
             </div>

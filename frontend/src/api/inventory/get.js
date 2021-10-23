@@ -54,6 +54,17 @@ export const getAllUserSDSFiles = (locationId, params) => {
     });
 };
 
+export const getSubstances = (params) => {
+  return axiosAuthoringInstance
+    .get(`inventoryFiles/`, { params: params })
+    .then(function (response) {
+      return response;
+    })
+    .catch(function (error) {
+      return error.response;
+    });
+};
+
 export const getSDSDetails = (sdsId) => {
   return axiosAuthoringInstance
     .get(`inventoryFiles/${sdsId}/`)

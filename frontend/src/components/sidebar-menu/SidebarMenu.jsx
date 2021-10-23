@@ -14,7 +14,7 @@ const SidebarMenu = ({ open, setOpen }) => {
 
   const sidebarItems = [
     { value: 'Home', icon: <HomeIcon />, path: '/' },
-    { value: 'Substances', icon: <SubstanceIcon />, path: '/' },
+    { value: 'Substances', icon: <SubstanceIcon />, path: '/substances/' },
     { value: 'Location', icon: <LocationIcon />, path: '/locations/' },
   ];
 

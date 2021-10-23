@@ -82,12 +82,12 @@ const SDSItemsTable = ({ locationName, rows }) => {
             <TableCell style={{ width: '30%', fontWeight: 'bold' }}>
               {row.imported_sds_revision_date}
             </TableCell>
-            <TableCell
-              style={{ display: 'flex', width: '260px', flexWrap: 'wrap' }}
-            >
-              {row.ghs_pictograms.map((el, i) => (
-                <img height="60px" width="60px" alt="GHS" src={el} key={i} />
-              ))}
+            <TableCell style={{ width: '260px' }}>
+              <div style={{ display: 'flex', width: '100%', flexWrap: 'wrap' }}>
+                {row.ghs_pictograms.map((el, i) => (
+                  <img height="60px" width="60px" alt="GHS" src={el} key={i} />
+                ))}
+              </div>
             </TableCell>
             <TableCell align={'right'}>
               <div className={classes.iconWrapper} title="Open SDS">

@@ -5,7 +5,7 @@ import { getInventoryStats } from 'api';
 import useStyles from './styles';
 import { Typography } from '@material-ui/core';
 
-const HomeGeneralInformation = () => {
+const HomeGeneralInformation = ({ user }) => {
   const classes = useStyles();
   const [keyInfo, setKeyInfo] = React.useState(null);
 
@@ -21,7 +21,7 @@ const HomeGeneralInformation = () => {
   return (
     <div className={classes.root}>
       <Typography className={classes.heading} variant={'h4'}>
-        Welcome to Netpower
+        Welcome to {user?.customer?.name}
       </Typography>
       <div className={classes.infoWrapper}>
         {keyInfo && (

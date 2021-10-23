@@ -11,7 +11,7 @@ const HomePage = ({ user }) => {
       <Header user={user} />
       <div className={classes.contentWrapper}>
         <div className={classes.contentBox}>
-          <HomeGeneralInformation />
+          <HomeGeneralInformation user={user}/>
         </div>
       </div>
     </div>

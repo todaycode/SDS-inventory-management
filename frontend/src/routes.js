@@ -3,7 +3,14 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import { getUser } from 'api';
-import { HomePage, LocationsPage, Login, SDSInfoPage, UserManagementPage } from 'pages';
+import {
+  HomePage,
+  LocationsPage,
+  Login,
+  SDSInfoPage,
+  SubstancesPage,
+  UserManagementPage,
+} from 'pages';
 
 function Routes() {
   const [user, setUser] = React.useState(null);
@@ -34,6 +41,9 @@ function Routes() {
         </Route>
         <Route exact path="/userManagement/">
           <UserManagementPage user={user} />
+        </Route>
+        <Route exact path="/substances/">
+          <SubstancesPage user={user} />
         </Route>
       </Switch>
     </Router>

@@ -8,6 +8,7 @@ import {
   getLocations,
   getLocationByID,
   getSDSDetails,
+  getSubstances,
 } from './inventory/get';
 import { addSDSToLocation, grantAccessToDepartment } from './inventory/post';
 
@@ -20,6 +21,7 @@ export {
   getLocations,
   getLocationByID,
   getSDSDetails,
+  getSubstances,
   getUser,
   grantAccessToDepartment,
   loginUser,

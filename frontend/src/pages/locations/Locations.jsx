@@ -52,7 +52,7 @@ const LocationsPage = ({ user }) => {
               classes: { input: classes.locationSearchInput },
             }}
             classes={{ root: classes.inputRoot }}
-            placeholder={'Netpower'}
+            placeholder={user?.customer?.name}
           />
           <Button classes={{ root: classes.addButton }} variant={'outlined'}>
             Add location
