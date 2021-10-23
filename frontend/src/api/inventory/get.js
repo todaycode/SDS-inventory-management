@@ -21,6 +21,16 @@ export const getLocations = () => {
       return error.response;
     });
 };
+export const getDepartments = () => {
+  return axiosAuthoringInstance
+    .get('/inventory/departments/')
+    .then(function (response) {
+      return response;
+    })
+    .catch(function (error) {
+      return error.response;
+    });
+};
 
 export const getLocationByID = (inventoryID, params = {}) => {
   return axiosAuthoringInstance

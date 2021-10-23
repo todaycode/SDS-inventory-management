@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Tab, Tabs } from '@material-ui/core';
 
-import { Header } from 'components';
+import { CreateUserForm, Header, ManageDepartmentAccess } from 'components';
 
 import useStyles from './styles';
 
@@ -15,7 +15,7 @@ function a11yProps(index) {
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
-
+  const classes = useStyles();
   return (
     <div
       role="tabpanel"
@@ -24,7 +24,9 @@ function TabPanel(props) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && <div >{children}</div>}
+      {value === index && (
+        <div className={classes.tabChildrenWrapper}>{children}</div>
+      )}
     </div>
   );
 }
@@ -56,12 +58,10 @@ const UserManagementPage = ({ user }) => {
           </div>
           <div className={classes.tabsContentWrapper}>
             <TabPanel value={value} index={0}>
-              <div>
-
-              </div>
+              <ManageDepartmentAccess />
             </TabPanel>
             <TabPanel value={value} index={1}>
-              Item Two
+              <CreateUserForm />
             </TabPanel>
           </div>
         </div>

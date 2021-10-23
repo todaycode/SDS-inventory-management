@@ -23,6 +23,11 @@ const useStyles = makeStyles({
     display: 'flex',
     justifyContent: 'center',
   },
+  tabChildrenWrapper: {
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+  },
 });
 
 export default useStyles;

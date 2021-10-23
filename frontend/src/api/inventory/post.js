@@ -11,4 +11,19 @@ const addSDSToLocation = (locationID, sdsIDs) => {
     });
 };
 
-export { addSDSToLocation };
+const grantAccessToDepartment = (departmentID, userRole, userEmail) => {
+  return axiosAuthoringInstance
+    .post(`/inventory/addUserToDepartment/`, {
+      department_id: departmentID,
+      user_role: userRole,
+      user_email: userEmail,
+    })
+    .then(function (response) {
+      return response;
+    })
+    .catch(function (error) {
+      return error.response;
+    });
+};
+
+export { addSDSToLocation, grantAccessToDepartment };

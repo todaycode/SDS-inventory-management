@@ -1,11 +1,13 @@
 import AddSubstancePopup from './add-substance-popup/AddSubstancePopup';
 import AppsPopoverContent from './apps-popover-content/AppsPopoverContent';
+import CreateUserForm from './create-user-form/CreateUserForm';
 import CustomTreeView from './tree-view/TreeView';
 import Header from './header/Header';
 import HomeIcon from './icons/HomeIcon';
 import HomeGeneralInformation from './home-key-information/HomeGeneralInformation';
 import LocationIcon from './icons/LocationIcon';
 import LocationInfo from './location-info/LocationInfo';
+import ManageDepartmentAccess from './manage-department-access/ManageDepartmentAccess';
 import MenuIcon from './icons/MenuIcon';
 import SDSItemsTable from './sds-items-table/SDSItemsTable';
 import SDSPreviewPopup from './sds-preview-popup/SDSPreviewPopup';
@@ -18,12 +20,14 @@ import TablePaginationActions from './table-pagination-actions/TablePaginationAc
 export {
   AddSubstancePopup,
   AppsPopoverContent,
+  CreateUserForm,
   CustomTreeView,
   Header,
   HomeIcon,
   HomeGeneralInformation,
   LocationIcon,
   LocationInfo,
+  ManageDepartmentAccess,
   MenuIcon,
   SDSPreviewPopup,
   SDSItemsTable,
