@@ -75,15 +75,3 @@ export const getSDSDetails = (sdsId) => {
       return error.response;
     });
 };
-
-//
-// export const getGHSStatements = () => {
-//   return axiosAuthoringInstance
-//     .get('/sds/hazardCodes/')
-//     .then(function (response) {
-//       return response;
-//     })
-//     .catch(function (error) {
-//       return error.response;
-//     });
-// };

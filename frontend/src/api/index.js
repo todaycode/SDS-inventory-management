@@ -11,11 +11,13 @@ import {
   getSubstances,
 } from './inventory/get';
 import { addSDSToLocation, grantAccessToDepartment } from './inventory/post';
+import { getAllPdfs } from './pdfs/get';
 
 export {
   addSDSToLocation,
   archiveLocation,
   getAllUserSDSFiles,
+  getAllPdfs,
   getDepartments,
   getInventoryStats,
   getLocations,

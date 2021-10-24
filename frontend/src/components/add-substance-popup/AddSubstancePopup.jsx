@@ -11,9 +11,11 @@ import {
   TableHead,
   TablePagination,
   TableRow,
+  TextField,
 } from '@material-ui/core';
+import { SearchOutlined } from '@material-ui/icons';
 
-import { addSDSToLocation, getAllUserSDSFiles } from 'api';
+import { addSDSToLocation, getAllPdfs } from 'api';
 import { TablePaginationActions } from 'components';
 
 import useStyles from './styles';
@@ -28,6 +30,16 @@ const AddSubstancePopup = ({ locationID, open, onClose, refetch }) => {
 
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [producerSearchValue, setProducerSearchValue] = React.useState('');
+  const [productSearchValue, setProductSearchValue] = React.useState('');
+
+  const handleProducerSearch = (event) => {
+    setProducerSearchValue(event.target.value);
+  };
+
+  const handleProductSearch = (event) => {
+    setProductSearchValue(event.target.value);
+  };
 
   const handleClose = () => {
     setSelectedSubstances([]);
@@ -64,23 +76,72 @@ const AddSubstancePopup = ({ locationID, open, onClose, refetch }) => {
       }
     });
   };
+  const submitSearch = () => {
+    const getAllPdfsRequest = getAllPdfs({
+      search_product: productSearchValue,
+      search_producer: producerSearchValue,
+      page: 1,
+      pade_size: rowsPerPage,
+    });
+    getAllPdfsRequest.then((response) => {
+      if (response.status === 200) {
+        setSdsPaginatedData(response.data);
+      }
+    });
+  };
+
   React.useEffect(() => {
     if (open) {
-      const getAllUserSDSFilesRequest = getAllUserSDSFiles(locationID, {
+      const getAllPdfsRequest = getAllPdfs({
         page: page + 1,
         page_size: rowsPerPage,
+        search_product: productSearchValue,
+        search_producer: producerSearchValue,
       });
-      getAllUserSDSFilesRequest.then((response) => {
+      getAllPdfsRequest.then((response) => {
         if (response.status === 200) {
           setSdsPaginatedData(response.data);
         }
       });
     }
-  }, [open, page, rowsPerPage, locationID]);
+  }, [open, page, rowsPerPage]);
 
   return (
     <Dialog onClose={handleClose} open={open}>
       <DialogTitle>Add substance</DialogTitle>
+      <div className={classes.searchInputsWrapper}>
+        <TextField
+          onChange={handleProductSearch}
+          value={productSearchValue}
+          InputProps={{
+            classes: { input: classes.sdsSearchInput },
+            disableUnderline: true,
+          }}
+          classes={{ root: classes.inputRoot }}
+          placeholder={'Product'}
+        />
+        <TextField
+          onChange={handleProducerSearch}
+          value={producerSearchValue}
+          InputProps={{
+            classes: { input: classes.sdsSearchInput },
+            disableUnderline: true,
+          }}
+          classes={{ root: classes.inputRoot }}
+          placeholder={'Producer'}
+        />
+        <Button
+          onClick={() => submitSearch()}
+          disabled={
+            producerSearchValue.length < 3 &&
+            productSearchValue.length < 3 &&
+            producerSearchValue.length !== 0 &&
+            productSearchValue.length !== 0
+          }
+        >
+          <SearchOutlined />
+        </Button>
+      </div>
       <div className={classes.tableWrapper}>
         <Table
           classes={{
@@ -101,7 +162,7 @@ const AddSubstancePopup = ({ locationID, open, onClose, refetch }) => {
           </TableHead>
           <TableBody className={classes.tableBody}>
             {sdsPaginatedData.results.map((row) => (
-              <TableRow key={row.imported_sds_product_name}>
+              <TableRow key={row.sds_pdf_product_name}>
                 <TableCell align={'right'}>
                   <Checkbox
                     style={{
@@ -116,13 +177,13 @@ const AddSubstancePopup = ({ locationID, open, onClose, refetch }) => {
                   component="th"
                   scope="row"
                 >
-                  {row.imported_sds_product_name}
+                  {row.sds_pdf_product_name}
                 </TableCell>
-                <TableCell style={{ width: 260, fontWeight: 'bold' }}>
-                  {row.imported_sds_company_name}
+                <TableCell style={{fontWeight: 'bold' }}>
+                  {row.sds_pdf_manufacture_name}
                 </TableCell>
-                <TableCell style={{ width: 260, fontWeight: 'bold' }}>
-                  {row.imported_sds_revision_date}
+                <TableCell style={{ fontWeight: 'bold' }}>
+                  {row.sds_pdf_revision_date}
                 </TableCell>
               </TableRow>
             ))}
