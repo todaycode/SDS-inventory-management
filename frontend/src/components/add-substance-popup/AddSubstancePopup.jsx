@@ -162,7 +162,7 @@ const AddSubstancePopup = ({ locationID, open, onClose, refetch }) => {
           </TableHead>
           <TableBody className={classes.tableBody}>
             {sdsPaginatedData.results.map((row) => (
-              <TableRow key={row.sds_pdf_product_name}>
+              <TableRow key={row.id}>
                 <TableCell align={'right'}>
                   <Checkbox
                     style={{
