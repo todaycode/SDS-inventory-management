@@ -77,6 +77,17 @@ const useStyles = makeStyles({
     color: '#00324E',
     fontWeight: 'bold',
   },
+  errorBox: {
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    marginTop: '15%',
+    marginBottom: '15%',
+  },
+  errorText: {
+    fontSize: '21px',
+    fontWeight: 'bold',
+  },
 });
 
 export default useStyles;

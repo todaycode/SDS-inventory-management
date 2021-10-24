@@ -62,43 +62,47 @@ const SubstancesTable = () => {
         </TableRow>
       </TableHead>
       <TableBody className={classes.tableBody}>
-        {substancesData.results.map((row) => (
-          <TableRow className={classes.tableRow} key={row.id}>
-            <TableCell
-              style={{ fontWeight: 'bold' }}
-              component="th"
-              scope="row"
-            >
-              {row?.matched_pdf.sds_pdf_product_name}
-            </TableCell>
-            <TableCell style={{ fontWeight: 'bold' }}>
-              {row?.matched_pdf.sds_pdf_manufacture_name}
-            </TableCell>
-            <TableCell style={{ fontWeight: 'bold' }}>
-              {row?.matched_pdf.sds_pdf_revision_date}
-            </TableCell>
-            <TableCell style={{ width: '30%' }}>
-              <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                {row.matched_pdf?.extracted_data?.ghs_pictograms.map(
-                  (el, i) => (
-                    <img
-                      height="60px"
-                      width="60px"
-                      alt="GHS"
-                      src={el}
-                      key={i}
-                    />
-                  )
-                )}
-              </div>
-            </TableCell>
-            <TableCell>
-              {row.matched_pdf?.used_in_locations.map((el, i) => (
-                <p key={i}>⬤ {el}</p>
-              ))}
-            </TableCell>
-          </TableRow>
-        ))}
+        {substancesData.results.map((row) => {
+          if (row.matched_pdf) {
+            return (
+              <TableRow className={classes.tableRow} key={row.id}>
+                <TableCell
+                  style={{ fontWeight: 'bold' }}
+                  component="th"
+                  scope="row"
+                >
+                  {row?.matched_pdf.sds_pdf_product_name}
+                </TableCell>
+                <TableCell style={{ fontWeight: 'bold' }}>
+                  {row?.matched_pdf.sds_pdf_manufacture_name}
+                </TableCell>
+                <TableCell style={{ fontWeight: 'bold' }}>
+                  {row?.matched_pdf.sds_pdf_revision_date}
+                </TableCell>
+                <TableCell style={{ width: '30%' }}>
+                  <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                    {row.matched_pdf?.extracted_data?.ghs_pictograms.map(
+                      (el, i) => (
+                        <img
+                          height="60px"
+                          width="60px"
+                          alt="GHS"
+                          src={el}
+                          key={i}
+                        />
+                      )
+                    )}
+                  </div>
+                </TableCell>
+                <TableCell>
+                  {row.matched_pdf?.used_in_locations.map((el, i) => (
+                    <p key={i}>⬤ {el}</p>
+                  ))}
+                </TableCell>
+              </TableRow>
+            );
+          }
+        })}
       </TableBody>
       <TableFooter>
         <TableRow>
