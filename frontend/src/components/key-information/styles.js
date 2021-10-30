@@ -29,6 +29,25 @@ const useStyles = makeStyles({
     background: '#FAFAFA',
     borderBottom: '1px solid #7AA4CA',
     padding: '0px 16px',
+    '&:hover': {
+      background: '#e0e7fa',
+      cursor: 'pointer',
+    },
+  },
+  inputRoot: {
+    width: '100%',
+    marginBottom: '30px',
+  },
+  locationSearchInput: {
+    color: 'rgba(0, 0, 0, 0.6)',
+    fontSize: '16px',
+    fontWeight: 'bold',
+    height: '52px',
+    padding: '0 16px',
+    border: '1px solid rgba(0, 0, 0, 0.38)',
+    borderRadius: '4px',
+    background: 'rgba(0, 0, 0, 0.04)',
+    width: '100%',
   },
 });
 

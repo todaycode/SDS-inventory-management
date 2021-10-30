@@ -1,16 +1,19 @@
 import AddSubstancePopup from './add-substance-popup/AddSubstancePopup';
 import AppsPopoverContent from './apps-popover-content/AppsPopoverContent';
+import ChemicalsIcon from './icons/ChemicalsIcon';
 import CreateUserForm from './create-user-form/CreateUserForm';
 import CustomTreeView from './tree-view/TreeView';
+import GlobalSDSSearchTable from './global-sds-search-table/GlobalSDSSearchTable';
 import Header from './header/Header';
 import HomeIcon from './icons/HomeIcon';
-import HomeGeneralInformation from './home-key-information/HomeGeneralInformation';
+import KeyInformation from './key-information/KeyInformation';
 import LocationIcon from './icons/LocationIcon';
 import LocationInfo from './location-info/LocationInfo';
 import ManageDepartmentAccess from './manage-department-access/ManageDepartmentAccess';
 import MenuIcon from './icons/MenuIcon';
 import SDSItemsTable from './sds-items-table/SDSItemsTable';
 import SDSPreviewPopup from './sds-preview-popup/SDSPreviewPopup';
+import SidebarIconsWrapper from './sidebar-icons-wrapper/SidebarIconsWrapper';
 import SidebarMenu from './sidebar-menu/SidebarMenu';
 import SidebarMenuItem from './sidebar-menu-item/SidebarMenuItem';
 import StatementsTable from './statements-table/StatementsTable';
@@ -21,17 +24,20 @@ import TablePaginationActions from './table-pagination-actions/TablePaginationAc
 export {
   AddSubstancePopup,
   AppsPopoverContent,
+  ChemicalsIcon,
   CreateUserForm,
   CustomTreeView,
+  GlobalSDSSearchTable,
   Header,
   HomeIcon,
-  HomeGeneralInformation,
+  KeyInformation,
   LocationIcon,
   LocationInfo,
   ManageDepartmentAccess,
   MenuIcon,
   SDSPreviewPopup,
   SDSItemsTable,
+  SidebarIconsWrapper,
   SidebarMenu,
   SidebarMenuItem,
   StatementsTable,

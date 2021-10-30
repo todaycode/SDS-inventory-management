@@ -79,9 +79,9 @@ const SubstancesTable = () => {
                 <TableCell style={{ fontWeight: 'bold' }}>
                   {row?.matched_pdf.sds_pdf_revision_date}
                 </TableCell>
-                <TableCell style={{ width: '30%' }}>
+                <TableCell style={{ width: '20%' }}>
                   <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                    {row.matched_pdf?.extracted_data?.ghs_pictograms.map(
+                    {row.matched_pdf?.extracted_data?.ghs_pictograms?.map(
                       (el, i) => (
                         <img
                           height="60px"

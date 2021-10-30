@@ -5,6 +5,11 @@ const useStyles = makeStyles({
     width: '100%',
     height: '100%',
   },
+  page: {
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+  },
   locationInfo: {
     width: '100%',
     padding: '60px',
@@ -21,6 +26,12 @@ const useStyles = makeStyles({
     flexDirection: 'column',
     alignItems: 'center',
     boxShadow: '0px 15px 35px rgba(51, 51, 51, 0.2)',
+  },
+  actionsWrapper:{
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
   },
   inputRoot: {
     width: '80%',

@@ -4,11 +4,12 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import { getUser } from 'api';
 import {
+  GlobalSDSSearch,
   HomePage,
   LocationsPage,
   Login,
   SDSInfoPage,
-  SubstancesPage,
+  AllOurSDS,
   UserManagementPage,
 } from 'pages';
 
@@ -32,8 +33,8 @@ function Routes() {
         <Route exact path="/">
           <HomePage user={user} />
         </Route>
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/locations">
+        <Route exact path="/login/" component={Login} />
+        <Route exact path="/locations/">
           <LocationsPage user={user} />
         </Route>
         <Route exact path="/sdsDetails/:sdsID">
@@ -43,7 +44,13 @@ function Routes() {
           <UserManagementPage user={user} />
         </Route>
         <Route exact path="/substances/">
-          <SubstancesPage user={user} />
+          <LocationsPage readOnlyView={true} user={user} />
+        </Route>
+        <Route exact path="/allOurSDS/">
+          <AllOurSDS user={user} />
+        </Route>
+        <Route exact path="/globalSDSSearch/">
+          <GlobalSDSSearch user={user} />
         </Route>
       </Switch>
     </Router>

@@ -179,7 +179,7 @@ const AddSubstancePopup = ({ locationID, open, onClose, refetch }) => {
                 >
                   {row.sds_pdf_product_name}
                 </TableCell>
-                <TableCell style={{fontWeight: 'bold' }}>
+                <TableCell style={{ fontWeight: 'bold' }}>
                   {row.sds_pdf_manufacture_name}
                 </TableCell>
                 <TableCell style={{ fontWeight: 'bold' }}>

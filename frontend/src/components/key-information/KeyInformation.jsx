@@ -1,12 +1,15 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
+
+import { SearchOutlined } from '@material-ui/icons';
+import { Button, TextField, Typography } from '@material-ui/core';
 
 import { getInventoryStats } from 'api';
-
 import useStyles from './styles';
-import { Typography } from '@material-ui/core';
 
-const HomeGeneralInformation = ({ user }) => {
+const KeyInformation = ({ user }) => {
   const classes = useStyles();
+  const history = useHistory();
   const [keyInfo, setKeyInfo] = React.useState(null);
 
   React.useEffect(() => {
@@ -20,6 +23,21 @@ const HomeGeneralInformation = ({ user }) => {
 
   return (
     <div className={classes.root}>
+      <TextField
+        InputProps={{
+          classes: { input: classes.locationSearchInput },
+          disableUnderline: true,
+          endAdornment: (
+            <Button
+              onClick={() => {}}
+            >
+              <SearchOutlined />
+            </Button>
+          ),
+        }}
+        classes={{ root: classes.inputRoot }}
+        placeholder={'Search location'}
+      />
       <Typography className={classes.heading} variant={'h4'}>
         Welcome to {user?.customer?.name}
       </Typography>
@@ -27,16 +45,22 @@ const HomeGeneralInformation = ({ user }) => {
         {keyInfo && (
           <div>
             <Typography variant={'h6'} className={classes.blockHeader}>
-              General Information
+              Key Information
             </Typography>
             <div className={classes.infoRow}>
-              <div className={classes.infoBlock}>
+              <div
+                onClick={() => history.push('/all-our-sds/')}
+                className={classes.infoBlock}
+              >
                 <p>Total chemicals</p>
                 <Typography variant={'h4'}>
                   {keyInfo.total_chemicals}
                 </Typography>
               </div>
-              <div className={classes.infoBlock}>
+              <div
+                onClick={() => history.push('/all-our-sds/')}
+                className={classes.infoBlock}
+              >
                 <p>Total substances in location</p>
                 <Typography variant={'h4'}>
                   {keyInfo.total_substances_in_location}
@@ -44,11 +68,17 @@ const HomeGeneralInformation = ({ user }) => {
               </div>
             </div>
             <div className={classes.infoRow}>
-              <div className={classes.infoBlock}>
+              <div
+                onClick={() => history.push('/locations/')}
+                className={classes.infoBlock}
+              >
                 <p>Locations</p>
                 <Typography variant={'h4'}>{keyInfo.locations}</Typography>
               </div>
-              <div className={classes.infoBlock}>
+              <div
+                onClick={() => history.push('/locations/')}
+                className={classes.infoBlock}
+              >
                 <p>Child locations</p>
                 <Typography variant={'h4'}>
                   {keyInfo.child_locations}
@@ -62,4 +92,4 @@ const HomeGeneralInformation = ({ user }) => {
   );
 };
 
-export default HomeGeneralInformation;
+export default KeyInformation;

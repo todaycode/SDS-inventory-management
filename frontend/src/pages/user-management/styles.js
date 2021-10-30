@@ -28,6 +28,11 @@ const useStyles = makeStyles({
     display: 'flex',
     justifyContent: 'center',
   },
+  page: {
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+  },
 });
 
 export default useStyles;

@@ -6,8 +6,13 @@ const useStyles = makeStyles({
     display: 'flex',
     justifyContent: 'center',
   },
+  page: {
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+  },
   tableWrapper: {
-    width: '60%',
+    width: '80%',
   },
 });
 

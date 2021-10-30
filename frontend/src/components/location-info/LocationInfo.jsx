@@ -9,6 +9,7 @@ import { AddSubstancePopup, SDSItemsTable } from 'components';
 import useStyles from './styles';
 
 const LocationInfo = ({
+  readOnlyView,
   handleArchive,
   locationDetails,
   updateLocationDetails,
@@ -50,18 +51,22 @@ const LocationInfo = ({
       {locationDetails ? (
         <div className={classes.content}>
           <Typography variant={'h4'}>{locationDetails.name}</Typography>
-          <div className={classes.actionButtons}>
-            <Button className={classes.actionButton} variant={'outlined'}>
-              Edit location
-            </Button>
-            <Button
-              onClick={() => handleArchive()}
-              className={classes.actionButton}
-              variant={'outlined'}
-            >
-              Archive location
-            </Button>
-          </div>
+          {!readOnlyView ? (
+            <div className={classes.actionButtons}>
+              <Button className={classes.actionButton} variant={'outlined'}>
+                Edit location
+              </Button>
+              <Button
+                onClick={() => handleArchive()}
+                className={classes.actionButton}
+                variant={'outlined'}
+              >
+                Archive location
+              </Button>
+            </div>
+          ) : (
+            ''
+          )}
           <div className={classes.contactDetailsWrapper}>
             <Typography className={classes.contactDetailsHeading}>
               CONTACT DETAILS TO RESPONSIBLE PERSON FOR THE LOCATION
@@ -93,50 +98,54 @@ const LocationInfo = ({
               </div>
             </div>
             <div className={classes.tableWrapper}>
-              <div className={classes.tableActions}>
-                <Button
-                  className={classes.tableActionBtn}
-                  style={{ width: '30%' }}
-                  variant={'outlined'}
-                  onClick={() => setOpenAddSubstancePopup(true)}
-                >
-                  Add substance
-                </Button>
-                <div className={classes.resultsCountBlock}>
-                  {locationDetails.sds_items && (
-                    <Typography
-                      style={{ fontSize: '14px', letterSpacing: '0.02857em' }}
-                    >{`${locationDetails.sds_items.length} Results`}</Typography>
-                  )}
+              {!readOnlyView ? (
+                <div className={classes.tableActions}>
+                  <Button
+                    className={classes.tableActionBtn}
+                    style={{ width: '30%' }}
+                    variant={'outlined'}
+                    onClick={() => setOpenAddSubstancePopup(true)}
+                  >
+                    Add substance
+                  </Button>
+                  <div className={classes.resultsCountBlock}>
+                    {locationDetails.sds_items && (
+                      <Typography
+                        style={{ fontSize: '14px', letterSpacing: '0.02857em' }}
+                      >{`${locationDetails.sds_items.length} Results`}</Typography>
+                    )}
+                  </div>
+                  <TextField
+                    onChange={handleSearch}
+                    value={searchValue}
+                    InputProps={{
+                      classes: { input: classes.locationSearchInput },
+                      disableUnderline: true,
+                      endAdornment: (
+                        <Button
+                          onClick={() => submitSearch()}
+                          disabled={
+                            searchValue.length < 3 && searchValue.length !== 0
+                          }
+                        >
+                          <SearchOutlined />
+                        </Button>
+                      ),
+                    }}
+                    classes={{ root: classes.inputRoot }}
+                    placeholder={'Search'}
+                  />
+                  <Button
+                    style={{ width: '5%' }}
+                    className={classes.tableActionBtn}
+                    variant={'outlined'}
+                  >
+                    Filter
+                  </Button>
                 </div>
-                <TextField
-                  onChange={handleSearch}
-                  value={searchValue}
-                  InputProps={{
-                    classes: { input: classes.locationSearchInput },
-                    disableUnderline: true,
-                    endAdornment: (
-                      <Button
-                        onClick={() => submitSearch()}
-                        disabled={
-                          searchValue.length < 3 && searchValue.length !== 0
-                        }
-                      >
-                        <SearchOutlined />
-                      </Button>
-                    ),
-                  }}
-                  classes={{ root: classes.inputRoot }}
-                  placeholder={'Search'}
-                />
-                <Button
-                  style={{ width: '5%' }}
-                  className={classes.tableActionBtn}
-                  variant={'outlined'}
-                >
-                  Filter
-                </Button>
-              </div>
+              ) : (
+                ''
+              )}
               {locationDetails && (
                 <SDSItemsTable
                   locationName={locationDetails.name}
