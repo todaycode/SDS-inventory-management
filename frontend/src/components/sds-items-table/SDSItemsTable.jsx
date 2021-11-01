@@ -74,13 +74,13 @@ const SDSItemsTable = ({ locationName, rows }) => {
               component="th"
               scope="row"
             >
-              {row.imported_sds_product_name}
+              {row.product_name}
             </TableCell>
             <TableCell style={{ width: '30%', fontWeight: 'bold' }}>
-              {row.imported_sds_company_name}
+              {row.supplier_name}
             </TableCell>
             <TableCell style={{ width: '30%', fontWeight: 'bold' }}>
-              {row.imported_sds_revision_date}
+              {row.revision_date}
             </TableCell>
             <TableCell style={{ width: '260px' }}>
               <div style={{ display: 'flex', width: '100%', flexWrap: 'wrap' }}>

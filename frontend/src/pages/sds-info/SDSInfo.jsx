@@ -40,12 +40,12 @@ const SDSInfoPage = ({ user }) => {
         ) : sdsInfo ? (
           <div className={classes.content}>
             <Typography className={classes.heading} variant={'h4'}>
-              {sdsInfo.imported_sds_product_name}
+              {sdsInfo.product_name}
             </Typography>
             <Typography className={classes.heading} variant={'h6'}>
-              {sdsInfo.imported_sds_company_name}
+              {sdsInfo.producer_name}
             </Typography>
-            {null ? (
+            {sdsInfo.matched_pdf ? (
               <div>
                 <div>
                   <div className={classes.informationBlockHeadingWrapper}>
