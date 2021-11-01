@@ -15,7 +15,6 @@ const useStyles = makeStyles({
     width: '80%',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center',
   },
   tabsWrapper: {
     marginTop: '40px',

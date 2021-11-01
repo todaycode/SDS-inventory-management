@@ -49,7 +49,7 @@ const KeyInformation = ({ user }) => {
             </Typography>
             <div className={classes.infoRow}>
               <div
-                onClick={() => history.push('/all-our-sds/')}
+                onClick={() => history.push('/allOurSDS/')}
                 className={classes.infoBlock}
               >
                 <p>Total chemicals</p>
@@ -58,7 +58,7 @@ const KeyInformation = ({ user }) => {
                 </Typography>
               </div>
               <div
-                onClick={() => history.push('/all-our-sds/')}
+                onClick={() => history.push('/allOurSDS/')}
                 className={classes.infoBlock}
               >
                 <p>Total substances in location</p>
