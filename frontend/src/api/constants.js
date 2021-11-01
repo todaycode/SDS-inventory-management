@@ -4,7 +4,7 @@ export const BASE_API_URL = process.env.REACT_APP_API_URL;
 
 const axiosInstance = axios.create({
   baseURL: BASE_API_URL,
-  timeout: 5000,
+  timeout: 50000,
   headers: {
     Authorization: localStorage.getItem('access_token')
       ? 'JWT ' + localStorage.getItem('access_token')
